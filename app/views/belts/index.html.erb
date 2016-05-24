@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Belts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @belts.each do |belt| %>
+      <tr>
+        <td><%= belt.name %></td>
+        <td><%= belt.description %></td>
+        <td><%= link_to 'Show', belt %></td>
+        <td><%= link_to 'Edit', edit_belt_path(belt) if logged_in? && owner?(belt) %></td>
+        <td><%= link_to 'Destroy', belt, method: :delete, data: { confirm: 'Are you sure?' } if logged_in? && owner?(belt) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Belt', new_belt_path if logged_in? %>

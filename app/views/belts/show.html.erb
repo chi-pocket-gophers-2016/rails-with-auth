@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @belt.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @belt.description %>
+</p>
+
+<%= link_to 'Edit', edit_belt_path(@belt) if logged_in? %> |
+<%= link_to 'Back', belts_path %>

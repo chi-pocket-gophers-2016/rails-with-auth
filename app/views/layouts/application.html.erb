@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shoes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header>
+  <h1><a href="/">Belts App</a></h1>
+  <ul>
+    <% unless logged_in? %>
+    <li><a href="<%= new_user_path %>">Register</a></li>
+    <li><a href="<%= new_session_path %>">Login</a></li>
+    <% else %>
+    <li><a href="<%= banana_path %>">Logout</a></li>
+    <% end %>
+  </ul>
+</header>
+<%= yield %>
+
+</body>
+</html>

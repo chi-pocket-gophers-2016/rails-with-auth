@@ -1,0 +1,16 @@
+<%= form_tag sessions_path do %>
+
+  <% if @message %>
+    <div id="error_explanation">
+      <h2><%= @message %></h2>
+    </div>
+  <% end %>
+
+  <%= label_tag :username %>
+  <%= text_field_tag :username, params[:username] %>
+
+  <%= label_tag :password %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+<% end %>
