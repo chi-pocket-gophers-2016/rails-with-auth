@@ -5,7 +5,19 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   resources :belts
 
-  get '/logout' => "sessions#destroy", as: "banana"
+  get '/logout' => "sessions#destroy", as: "logout"
+
+
+
+  resources :posts, only: :show do
+    resources :comments, only: [:new, :create]
+    resources :votes, only: [:create]
+  end
+
+
+  resources :comments, only: [:edit, :update, :delete] do
+    resources :votes, only: [:create]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
